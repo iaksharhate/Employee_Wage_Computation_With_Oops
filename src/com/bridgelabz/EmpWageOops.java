@@ -6,6 +6,7 @@ public class EmpWageOops {
     public static final int empFullTime = 1;
     public static final int empPartTime = 2;
     public static final int empRatePerHour = 20;
+    public static final int totalMonthDays = 20;
 
     public static int empWage = 0;
     public static int empHours = 0;
@@ -47,19 +48,25 @@ public class EmpWageOops {
 
         switch (empCheck){
 
-            case 0: System.out.println("Employee is absent!");
-                    empHours = 0;
+            case 0: empHours = 0;
                     break;
 
-            case 1: System.out.println("Employee is present!");
-                    empHours = 16;
+            case 1: empHours = 16;
                     break;
 
-            case 2: System.out.println("Employee is present Part time!");
-                    empHours = 8;
+            case 2: empHours = 8;
                     break;
         }
         empWage = (empHours * empRatePerHour);
-        System.out.println(empWage);
+    }
+
+    public static void monthlyWage(){
+        int salary = 0;
+
+        for (int i = 0; i <= totalMonthDays; i++){
+            partTimeEmpWage();
+            salary = salary + empWage;
+        }
+        System.out.println("Monthly wage of employee: "+salary);
     }
 }
