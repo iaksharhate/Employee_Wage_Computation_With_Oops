@@ -30,7 +30,7 @@ public class EmpWageOops {
 
         status = empAttendance();
         if (status){
-            empHours = 8;
+            empHours = 16;
             empWage = empHours * empRatePerHour;
             System.out.println(empWage);
         }else{
@@ -39,5 +39,24 @@ public class EmpWageOops {
             System.out.println(empWage);
         }
         return true;
+    }
+    public static int partTimeEmpWage(){
+        Random random = new Random();
+
+        int empCheck = random.nextInt(3);
+
+        if (empCheck == empAbsent){
+            System.out.println("Employee is absent!");
+            empHours = 0;
+        }else if (empCheck == empFullTime){
+            System.out.println("Employee is present!");
+            empHours = 16;
+        }else {
+            System.out.println("Employee is present Part time!");
+            empHours = 8;
+        }
+        empWage = (empHours * empRatePerHour);
+        System.out.println(empWage);
+        return empWage;
     }
 }
